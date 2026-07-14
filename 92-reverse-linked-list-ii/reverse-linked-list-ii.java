@@ -36,9 +36,7 @@ class Solution {
         if(tail!=null){
             tail.next=temp;
         }
-        if(temp!=null){
-            
-        }
+       
 
         return left==1?node: head;
 
