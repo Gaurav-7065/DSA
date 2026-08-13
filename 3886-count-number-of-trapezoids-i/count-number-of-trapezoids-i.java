@@ -1,5 +1,5 @@
 class Solution {
-    long MOD = 1000000007l;
+    long MOD = 1000000007L;
 
     public int countTrapezoids(int[][] points) {
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
