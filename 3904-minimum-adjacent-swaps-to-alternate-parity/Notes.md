@@ -1,0 +1,1 @@
+<h2>minimum-adjacent-swaps-to-alternate-parity Notes</h2><hr>[ Time taken: 1hr 1m 4s ]
