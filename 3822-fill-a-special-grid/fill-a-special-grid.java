@@ -1,44 +1,23 @@
 class Solution {
-
+    int count=0;
     public int[][] specialGrid(int n) {
+        int size=(int)Math.pow(2,n);
+        int[][]grid=new int[size][size];
 
-        int size = 1 << n;
-        int[][] ans = new int[size][size];
-
-        fill(ans, 0, 0, n, 0);
-
-        return ans;
+        fill(grid,0,size,0,size);
+        return grid;
     }
-
-    private void fill(int[][] ans, int row, int col,
-                      int n, int start) {
-
-        // 1 × 1 grid
-        if (n == 0) {
-            ans[row][col] = start;
+    void fill(int[][]grid,int r1,int r2,int c1,int c2){
+        if(r2-r1==1){
+            grid[r1][c1]=count++;
             return;
         }
-
-        int size = 1 << n;
-        int half = size / 2;
-
-        // Number of elements in one quadrant
-        int block = half * half;
-
-        // Top-right → smallest
-        fill(ans, row, col + half,
-             n - 1, start);
-
-        // Bottom-right
-        fill(ans, row + half, col + half,
-             n - 1, start + block);
-
-        // Bottom-left
-        fill(ans, row + half, col,
-             n - 1, start + 2 * block);
-
-        // Top-left → largest
-        fill(ans, row, col,
-             n - 1, start + 3 * block);
+        int midRow=(r1+r2)/2;
+        int midCol=(c1+c2)/2;
+       
+        fill(grid,r1,midRow,midCol,c2);
+        fill(grid,midRow,r2,midCol,c2);
+        fill(grid,midRow,r2,c1,midCol);
+        fill(grid,r1,midRow,c1,midCol);
     }
 }
