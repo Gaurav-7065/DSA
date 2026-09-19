@@ -20,6 +20,16 @@ class Solution {
             idx2+=div2;
         }
 
-       return map1.equals(map2);
+        for(String str:map1.keySet()){
+            
+            if(!map2.containsKey(str)||!map1.get(str).equals(map2.get(str))){
+                return false;
+            }
+            map2.put(str,map2.get(str)-1);
+            if(map2.get(str)==0){
+                map2.remove(str);
+            }
+        }
+        return true;
     }
 }
