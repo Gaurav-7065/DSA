@@ -14,8 +14,7 @@ class Solution {
        for(int i=1;i<list.size();i++){
           
              int elem=list.get(i)-list.get(i-1);
-             count=(int)((long)count*elem%mod);
-          
+             count=(int)(((long)count*elem)%mod);
        }
        return count;
     }
